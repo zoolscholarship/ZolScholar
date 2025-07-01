@@ -15,6 +15,10 @@ import ScholarshipsArab from "./pages/ScholarshipsArab";
 import ScholarshipsForeign from "./pages/ScholarshipsForeign";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
+import Recommendations from "./pages/Recommendations";
+import ApplicationTracker from "./pages/ApplicationTracker";
+import SuccessStories from "./pages/SuccessStories";
+import Blog from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +46,10 @@ const App = () => (
           />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/recommendations" element={<Recommendations />} />
+          <Route path="/tracker" element={<ApplicationTracker />} />
+          <Route path="/success-stories" element={<SuccessStories />} />
+          <Route path="/blog" element={<Blog />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
