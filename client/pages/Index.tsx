@@ -109,14 +109,14 @@ export default function Index() {
 
   const stats = [
     { number: "10,000+", label: "طالب مستفيد", icon: Users },
-    { number: "500+", label: "منحة متاحة", icon: GraduationCap },
+    { number: "350+", label: "منحة متاحة", icon: GraduationCap },
     { number: "95%", label: "معدل النجاح", icon: Trophy },
     { number: "50+", label: "دولة", icon: Globe },
   ];
 
   const featuredScholarships = [
     {
-      title: "منحة ��لحكومة التركية 2024",
+      title: "منحة ���لحكومة التركية 2024",
       country: "تركيا",
       deadline: "31 يناير 2024",
       funding: "ممولة بالكامل",
