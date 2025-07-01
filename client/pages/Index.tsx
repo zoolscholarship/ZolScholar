@@ -380,6 +380,111 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Amazing Features Section */}
+      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-100 to-blue-100 px-6 py-2 rounded-full mb-6">
+              <Heart className="w-5 h-5 text-purple-500" />
+              <span className="text-purple-700 font-semibold">
+                مميزات حصرية
+              </span>
+            </div>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              🚀 أدوات ذكية لضمان نجاحك
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              اكتشف مجموعة من الأدوات المبتكرة المصممة خصيصاً لمساعدتك في الحصول
+              على المنحة المثالية
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="scholarship-card group hover:scale-105 transition-all duration-300 border-2 hover:border-purple-200">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">🤖</span>
+                </div>
+                <CardTitle className="text-xl font-bold">توصيات ذكية</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-center mb-6">
+                  محرك ذكاء اصطناعي يحلل ملفك ويجد أفضل المنح المناسبة لك
+                </p>
+                <Link to="/recommendations">
+                  <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">
+                    جربه الآن
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="scholarship-card group hover:scale-105 transition-all duration-300 border-2 hover:border-blue-200">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <CardTitle className="text-xl font-bold">
+                  متابع الطلبات
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-center mb-6">
+                  تتبع جميع طلباتك للمنح مع تذكيرات المواعيد وحالة التقدم
+                </p>
+                <Link to="/tracker">
+                  <Button className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600">
+                    ابدأ الآن
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="scholarship-card group hover:scale-105 transition-all duration-300 border-2 hover:border-yellow-200">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">🏆</span>
+                </div>
+                <CardTitle className="text-xl font-bold">قصص النجاح</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-center mb-6">
+                  اكتشف قصص ملهمة لطلاب حصلوا على منح في أفضل الجامعات
+                </p>
+                <Link to="/success-stories">
+                  <Button className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600">
+                    اقرأ القصص
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="scholarship-card group hover:scale-105 transition-all duration-300 border-2 hover:border-green-200">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-2xl">📚</span>
+                </div>
+                <CardTitle className="text-xl font-bold">مدونة المنح</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-center mb-6">
+                  دليل شامل بأفضل النصائح والاستراتيجيات للحصول على المنح
+                </p>
+                <Link to="/blog">
+                  <Button className="w-full bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600">
+                    اقرأ المقالات
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-primary to-accent text-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -391,14 +496,14 @@ export default function Index() {
             أسهل، ونتابعك خطوة بخطوة لحدي ما تنجح إن شاء الله
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/search">
+            <Link to="/recommendations">
               <Button
                 size="lg"
                 variant="secondary"
                 className="text-lg px-8 py-3"
               >
-                <Search className="w-5 h-5 ml-2" />
-                ابحث عن منحة
+                <span className="text-xl mr-2">🤖</span>
+                احصل على توصيات ذكية
               </Button>
             </Link>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
