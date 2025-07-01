@@ -3,11 +3,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, ExternalLink, MessageCircle } from "lucide-react";
+import { filterScholarships } from "@/data/scholarships";
+import { Link } from "react-router-dom";
 
 export default function ScholarshipsFullyFunded() {
   const whatsappLink = "https://wa.me/6285932416084";
 
-  const scholarships = [
+  // Get all fully funded scholarships from the database
+  const scholarships = filterScholarships({ category: "fully-funded" });
+
+  const staticScholarships = [
     {
       title: "منحة UI GREAT – إندونيسيا",
       country: "إندونيسيا",
@@ -88,7 +93,7 @@ export default function ScholarshipsFullyFunded() {
       level: "ماجستير/دكتوراه",
       funding: "ممولة بالكامل",
       language: "الإنجليزية/الفرنسية",
-      benefits: ["راتب شهري", "رسوم دراسية", "تأمين صحي", "بدل معيشة"],
+      benefits: ["راتب شهري", "رسوم دراسية", "تأمين ص��ي", "بدل معيشة"],
       applyLink: "https://www.scholarships-bourses.gc.ca/",
       badgeColor: "bg-red-700 text-white",
       image:
@@ -121,7 +126,7 @@ export default function ScholarshipsFullyFunded() {
       funding: "ممولة بالكامل",
       language: "الإنجليزية",
       benefits: [
-        "راتب شهري A$3,000",
+        "ر��تب شهري A$3,000",
         "رسوم دراسية",
         "تأمين صحي",
         "تذاكر طيران",
