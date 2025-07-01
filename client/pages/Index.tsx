@@ -103,7 +103,7 @@ export default function Index() {
     {
       title: "استشارات خاصة",
       icon: HeadphonesIcon,
-      description: "استشارات شخصية ومتابعة مستمرة عبر واتساب",
+      description: "استشارات شخصية ومتابعة مستمرة عبر وات��اب",
     },
   ];
 
@@ -145,39 +145,176 @@ export default function Index() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-accent/5 to-blue-50 py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
+      {/* Personal Introduction Section */}
+      <section
+        className="relative py-20 px-4 overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 50%, rgba(245, 158, 11, 0.1) 100%)",
+        }}
+      >
+        {/* Subtle Sudan flag pattern background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-1/3 bg-red-500"></div>
+          <div className="absolute top-1/3 left-0 w-full h-1/3 bg-white"></div>
+          <div className="absolute top-2/3 left-0 w-full h-1/3 bg-black"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              مرحباً بك في <span className="text-primary">حلم زول بسيط</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              منصتك الأولى لاكتشاف أفضل الفرص والمنح الدراسية الممولة بالكامل
-              حول العالم!
-              <br />
-              <span className="text-primary font-semibold">
-                هدفنا مساعدتك في الوصول لحلمك الدراسي بكل سهولة
-              </span>
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link to="/search">
-                <Button size="lg" className="text-lg px-8 py-3">
-                  <Search className="w-5 h-5 ml-2" />
-                  ابحث عن منحتك الآن
-                </Button>
-              </Link>
-              <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="text-lg px-8 py-3"
-                >
-                  <MessageCircle className="w-5 h-5 ml-2" />
-                  تواصل معنا
-                </Button>
-              </a>
+            {/* Logo/Title */}
+            <div className="mb-8">
+              <h1
+                className="text-5xl md:text-6xl font-bold mb-4"
+                style={{ fontFamily: "Cairo, serif" }}
+              >
+                <span className="bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 bg-clip-text text-transparent">
+                  ✨ حلم زول بسيط ✨
+                </span>
+              </h1>
             </div>
+
+            {/* Personal Story */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+              <div
+                className="space-y-6 text-lg leading-relaxed"
+                style={{ fontFamily: "Cairo, serif" }}
+              >
+                <p className="text-gray-700">
+                  أنا زول بسيط من السودان، عشت صعوبات كثيرة، من حرب وفرقة، من
+                  جوع وغربة، لكن ما نسيت أحلامي، ولا نسيت بلدي وأهلي.
+                </p>
+
+                <div className="flex items-center justify-center gap-2 my-6">
+                  <div className="h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent flex-1"></div>
+                  <Heart className="w-6 h-6 text-red-500" />
+                  <div className="h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent flex-1"></div>
+                </div>
+
+                <p className="text-blue-800 font-semibold">
+                  "حلم زول بسيط" ما موقع عادي… دا رسالة، أمل، ويد ممدودة لأي شاب
+                  أو بنت سوداني/ة بفتش في النور وسط العتمة.
+                </p>
+
+                <p className="text-gray-700">
+                  هنا، حتلقى منح دراسية ممولة بالكامل، فرص من كل العالم، خدمات
+                  تساعدك تجهز ملفك، وكل دا مجانًا، عشانك.
+                </p>
+
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border-l-4 border-green-500">
+                  <p className="text-green-800 font-medium">
+                    أنا أسامة، من زول طلب مساعدات عشان يسافر، لي زول بساعد غيرو
+                    يسافر.
+                    <br />
+                    حلمي؟ أشوف أكبر عدد من شباب السودان في الجامعات العالمية،
+                    مرفوعي الراس، وناجحين.
+                  </p>
+                </div>
+
+                <p className="text-2xl font-bold text-gray-800 flex items-center justify-center gap-2">
+                  لو وصلت هنا، فأنت ما وحدك…
+                  <span className="text-3xl">✊</span>
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <div className="mt-8">
+                <Link to="/search">
+                  <Button
+                    size="lg"
+                    className="text-xl px-10 py-4 bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 hover:from-blue-700 hover:via-green-600 hover:to-yellow-600 text-white shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <GraduationCap className="w-6 h-6 ml-3" />
+                    ابدأ رحلة حلمك
+                    <ArrowLeft className="w-6 h-6 mr-3" />
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Social proof */}
+              <div className="mt-6 flex items-center justify-center gap-6 text-sm text-gray-600">
+                <div className="flex items-center gap-2">
+                  <Users className="w-4 h-4" />
+                  <span>10,000+ طالب مستفيد</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Trophy className="w-4 h-4" />
+                  <span>500+ قصة نجاح</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Heart className="w-4 h-4 text-red-500" />
+                  <span>من القلب للقلب</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Access to Main Features */}
+      <section className="py-12 px-4 bg-white border-b">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <Link to="/search" className="group">
+              <Card className="scholarship-card text-center hover:scale-105 transition-all duration-300 border-2 hover:border-blue-300">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
+                    <Search className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">ابحث عن منح</h3>
+                  <p className="text-sm text-muted-foreground">
+                    اكتشف مئات المنح المتاحة
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/recommendations" className="group">
+              <Card className="scholarship-card text-center hover:scale-105 transition-all duration-300 border-2 hover:border-purple-300">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 transition-colors">
+                    <span className="text-2xl">🤖</span>
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">توصيات ذكية</h3>
+                  <p className="text-sm text-muted-foreground">
+                    منح مخصصة لملفك
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/success-stories" className="group">
+              <Card className="scholarship-card text-center hover:scale-105 transition-all duration-300 border-2 hover:border-yellow-300">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-yellow-200 transition-colors">
+                    <Trophy className="w-8 h-8 text-yellow-600" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">قصص النجاح</h3>
+                  <p className="text-sm text-muted-foreground">
+                    اقرأ قصص ملهمة
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <Card className="scholarship-card text-center hover:scale-105 transition-all duration-300 border-2 hover:border-green-300">
+                <CardContent className="p-6">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
+                    <MessageCircle className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">تحدث معنا</h3>
+                  <p className="text-sm text-muted-foreground">
+                    احصل على مساعدة فورية
+                  </p>
+                </CardContent>
+              </Card>
+            </a>
           </div>
         </div>
       </section>
