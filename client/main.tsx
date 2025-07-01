@@ -19,6 +19,8 @@ import Recommendations from "./pages/Recommendations";
 import ApplicationTracker from "./pages/ApplicationTracker";
 import SuccessStories from "./pages/SuccessStories";
 import Blog from "./pages/Blog";
+import ScholarshipDetails from "./pages/ScholarshipDetails";
+import Explore from "./pages/Explore";
 
 const queryClient = new QueryClient();
 
@@ -50,6 +52,8 @@ const App = () => (
           <Route path="/tracker" element={<ApplicationTracker />} />
           <Route path="/success-stories" element={<SuccessStories />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/scholarship/:id" element={<ScholarshipDetails />} />
+          <Route path="/explore" element={<Explore />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

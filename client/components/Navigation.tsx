@@ -38,6 +38,7 @@ const Navigation = () => {
   ];
 
   const moreItems = [
+    { href: "/explore", label: "🌍 استكشاف المنح", icon: "🗺️" },
     { href: "/recommendations", label: "🤖 توصيات ذكية", icon: "🧠" },
     { href: "/tracker", label: "📊 متابع الطلبات", icon: "📈" },
     { href: "/success-stories", label: "🏆 قصص النجاح", icon: "✨" },
