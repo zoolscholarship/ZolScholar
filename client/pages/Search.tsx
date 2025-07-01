@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,9 +11,11 @@ import {
   MapPin,
   Calendar,
   DollarSign,
-  ExternalLink,
+  ArrowRight,
   MessageCircle,
+  Star,
 } from "lucide-react";
+import { scholarshipsDatabase, filterScholarships } from "@/data/scholarships";
 
 export default function Search() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,177 +23,59 @@ export default function Search() {
   const [selectedLevel, setSelectedLevel] = useState("");
   const [selectedFunding, setSelectedFunding] = useState("");
 
-  const allScholarships = [
-    {
-      title: "منحة DAAD الألمانية",
-      country: "ألمانيا",
-      deadline: "مارس 2025",
-      level: "ماجستير/دكتوراه",
-      funding: "ممولة بالكامل",
-      description: "منحة شاملة تغطي الرسوم الدراسية والمعيشة مع راتب شهري €850",
-      link: "https://www.daad.de/en/",
-      badgeColor: "bg-yellow-500 text-white",
-      image:
-        "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة التركية",
-      country: "تركيا",
-      deadline: "فبراير 2025",
-      level: "جميع المستويات",
-      funding: "ممولة بالكامل",
-      description: "منحة شاملة مع راتب شهري وسكن مجاني وتأمين صحي",
-      link: "https://www.turkiyescholarships.org.tr",
-      badgeColor: "bg-red-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة الكندية",
-      country: "كندا",
-      deadline: "يناير 2025",
-      level: "ماجستير/دكتوراه",
-      funding: "ممولة بالكامل",
-      description: "منحة مع راتب شهري وإمكانية الإقامة الدائمة",
-      link: "https://www.scholarships-bourses.gc.ca/",
-      badgeColor: "bg-red-700 text-white",
-      image:
-        "https://images.unsplash.com/photo-1517935706615-2717063c2225?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة جامعة الملك سعود",
-      country: "السعودية",
-      deadline: "فبراير 2025",
-      level: "جميع المستويات",
-      funding: "ممولة بالكامل",
-      description: "منحة شاملة مع راتب شهري وسكن وطعام مجاني",
-      link: "https://ksu.edu.sa/",
-      badgeColor: "bg-green-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1564769625905-50e93615e769?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة اليابانية MEXT",
-      country: "اليابان",
-      deadline: "مايو 2025",
-      level: "جميع المستويات",
-      funding: "ممولة بالكامل",
-      description: "منحة مع راتب شهري ¥117,000 ودورة لغة يابانية",
-      link: "https://www.mext.go.jp/en/",
-      badgeColor: "bg-pink-500 text-white",
-      image:
-        "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة جامعة الإمارات",
-      country: "الإمارات",
-      deadline: "مارس 2025",
-      level: "جميع المستويات",
-      funding: "ممولة بالكامل",
-      description: "منحة مع راتب شهري 3000 درهم وسكن مجاني",
-      link: "https://www.uaeu.ac.ae/",
-      badgeColor: "bg-red-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة الأسترالية",
-      country: "أستراليا",
-      deadline: "أبريل 2025",
-      level: "ماجستير/دكتوراه",
-      funding: "ممولة بالكامل",
-      description: "منحة مع راتب شهري A$3,000 وتذاكر طيران",
-      link: "https://www.australiaawards.gov.au/",
-      badgeColor: "bg-orange-500 text-white",
-      image:
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة الفرنسية",
-      country: "فرنسا",
-      deadline: "مارس 2025",
-      level: "ماجستير/دكتوراه",
-      funding: "ممولة بالكا��ل",
-      description: "منحة مع راتب شهري €1,200 ودورة لغة فرنسية",
-      link: "https://www.campusfrance.org/en/",
-      badgeColor: "bg-blue-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة الصينية CSC",
-      country: "الصين",
-      deadline: "مارس 2025",
-      level: "جميع المستويات",
-      funding: "ممولة بالكامل",
-      description: "منحة شاملة مع راتب شهري وسكن مجاني ودورة لغة",
-      link: "http://www.csc.edu.cn",
-      badgeColor: "bg-red-500 text-white",
-      image:
-        "https://images.unsplash.com/photo-1508515803269-23c93a85bf30?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة البريطانية Chevening",
-      country: "بريطانيا",
-      deadline: "نوفمبر 2024",
-      level: "ماجستير",
-      funding: "ممولة بالكامل",
-      description: "منحة مرموقة مع راتب شهري £1,200 وتذاكر طيران",
-      link: "https://www.chevening.org/",
-      badgeColor: "bg-purple-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة جامعة قطر",
-      country: "قطر",
-      deadline: "فبراير 2025",
-      level: "جميع المستويات",
-      funding: "ممولة بالكامل",
-      description: "منحة مع راتب شهري 2500 ريال قطري وسكن مجاني",
-      link: "https://www.qu.edu.qa/",
-      badgeColor: "bg-purple-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1541339907198-b8d0525ab2b5?w=300&h=200&fit=crop",
-    },
-    {
-      title: "منحة الحكومة الهولندية",
-      country: "هولندا",
-      deadline: "فبراير 2025",
-      level: "ماجستير",
-      funding: "منحة جزئية",
-      description: "منحة مع راتب شهري €950 وإعفاء من الرسوم",
-      link: "https://www.studyinnl.org/",
-      badgeColor: "bg-orange-600 text-white",
-      image:
-        "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?w=300&h=200&fit=crop",
-    },
-  ];
+  // استخدام قاعدة البيانات الشاملة
+  const getFilteredScholarships = () => {
+    let filtered = scholarshipsDatabase;
 
-  const filteredScholarships = allScholarships.filter((scholarship) => {
-    const matchesSearch =
-      searchTerm === "" ||
-      scholarship.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      scholarship.country.toLowerCase().includes(searchTerm.toLowerCase());
+    // فلترة بالبحث النصي
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (scholarship) =>
+          scholarship.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          scholarship.country
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          scholarship.university
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase()) ||
+          scholarship.subjects.some((subject) =>
+            subject.toLowerCase().includes(searchTerm.toLowerCase()),
+          ),
+      );
+    }
 
-    const matchesCountry =
-      selectedCountry === "" ||
-      selectedCountry === "جميع الدول" ||
-      scholarship.country === selectedCountry;
+    // فلترة بالدولة
+    if (selectedCountry && selectedCountry !== "جميع الدول") {
+      filtered = filtered.filter(
+        (scholarship) => scholarship.country === selectedCountry,
+      );
+    }
 
-    const matchesLevel =
-      selectedLevel === "" ||
-      selectedLevel === "جميع المستويات" ||
-      scholarship.level.includes(selectedLevel) ||
-      scholarship.level === "جميع المستويات";
+    // فلترة بالمستوى
+    if (selectedLevel && selectedLevel !== "جميع المستويات") {
+      filtered = filtered.filter(
+        (scholarship) =>
+          scholarship.level.includes(selectedLevel) ||
+          scholarship.level === "جميع المستويات",
+      );
+    }
 
-    const matchesFunding =
-      selectedFunding === "" ||
-      selectedFunding === "نوع التمويل" ||
-      scholarship.funding.includes(selectedFunding);
+    // فلترة بنوع التمويل
+    if (selectedFunding && selectedFunding !== "نوع التمويل") {
+      filtered = filtered.filter((scholarship) =>
+        scholarship.funding.includes(selectedFunding),
+      );
+    }
 
-    return matchesSearch && matchesCountry && matchesLevel && matchesFunding;
-  });
+    return filtered;
+  };
+
+  const filteredScholarships = getFilteredScholarships();
+
+  // الحصول على قائمة الدول المتاحة
+  const availableCountries = Array.from(
+    new Set(scholarshipsDatabase.map((s) => s.country)),
+  ).sort();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -230,18 +115,11 @@ export default function Search() {
                 onChange={(e) => setSelectedCountry(e.target.value)}
               >
                 <option value="">جميع الدول</option>
-                <option value="السعودية">السعودية</option>
-                <option value="الإمارات">الإمارات</option>
-                <option value="قطر">قطر</option>
-                <option value="تركيا">تركيا</option>
-                <option value="ألمانيا">ألمانيا</option>
-                <option value="كندا">كندا</option>
-                <option value="أستراليا">أستراليا</option>
-                <option value="اليابان">اليابان</option>
-                <option value="فرنسا">فرنسا</option>
-                <option value="الصين">الصين</option>
-                <option value="بريطانيا">بريطانيا</option>
-                <option value="هولندا">هولندا</option>
+                {availableCountries.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
               </select>
               <select
                 className="px-3 py-2 border border-input rounded-md bg-background"
@@ -285,9 +163,9 @@ export default function Search() {
         {/* Search Results */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredScholarships.length > 0 ? (
-            filteredScholarships.map((scholarship, index) => (
+            filteredScholarships.map((scholarship) => (
               <Card
-                key={index}
+                key={scholarship.id}
                 className="scholarship-card group hover:scale-105 transition-transform"
               >
                 <CardHeader>
@@ -302,9 +180,15 @@ export default function Search() {
                     <Badge className={scholarship.badgeColor}>
                       {scholarship.country}
                     </Badge>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Calendar className="w-4 h-4 ml-1" />
-                      {scholarship.deadline}
+                    <div className="flex items-center gap-2 text-sm">
+                      <div className="flex items-center text-muted-foreground">
+                        <Calendar className="w-4 h-4 ml-1" />
+                        {scholarship.deadline}
+                      </div>
+                      <div className="flex items-center text-green-600">
+                        <Star className="w-4 h-4 ml-1" />
+                        {scholarship.successRate}
+                      </div>
                     </div>
                   </div>
                   <CardTitle className="text-xl">{scholarship.title}</CardTitle>
@@ -321,20 +205,18 @@ export default function Search() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {scholarship.description}
+                    {scholarship.description.slice(0, 120)}...
                   </p>
                   <div className="flex gap-2">
-                    <a
-                      href={scholarship.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      to={`/scholarship/${scholarship.id}`}
                       className="flex-1"
                     >
                       <Button className="w-full">
-                        قدِّم الآن
-                        <ExternalLink className="w-4 h-4 mr-2" />
+                        عرض التفاصيل
+                        <ArrowRight className="w-4 h-4 mr-2" />
                       </Button>
-                    </a>
+                    </Link>
                     <a
                       href="https://wa.me/6285932416084"
                       target="_blank"
