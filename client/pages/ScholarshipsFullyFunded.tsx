@@ -34,7 +34,7 @@ export default function ScholarshipsFullyFunded() {
       level: "بكالوريوس/ماجستير/دكتوراه",
       funding: "ممولة بالكامل",
       language: "الصينية/الإنجليزية",
-      benefits: ["راتب شهري", "سكن مج��ني", "تأمين صحي", "دورة لغة"],
+      benefits: ["راتب شهري", "سكن مجاني", "تأمين صحي", "دورة لغة"],
       applyLink: "http://www.csc.edu.cn",
       badgeColor: "bg-red-500 text-white",
       image:
@@ -57,7 +57,7 @@ export default function ScholarshipsFullyFunded() {
     {
       title: "Türkiye Scholarships – تركيا",
       country: "تركيا",
-      deadline: "آخ�� موعد: فبراير 2025",
+      deadline: "آخر موعد: فبراير 2025",
       level: "جميع المستويات",
       funding: "ممولة بالكامل",
       language: "التركية/الإنجليزية",
@@ -295,7 +295,7 @@ export default function ScholarshipsFullyFunded() {
     {
       title: "منحة جامعة كامبريدج",
       country: "بريطانيا",
-      deadline: "آخ�� موعد: أكتوبر 2024",
+      deadline: "آخر موعد: أكتوبر 2024",
       level: "دكتوراه",
       funding: "ممولة بالكامل",
       language: "الإنجليزية",
@@ -324,7 +324,7 @@ export default function ScholarshipsFullyFunded() {
             تذاكر الطيران
           </p>
           <Badge className="mt-4 bg-success text-success-foreground text-lg px-4 py-2">
-            100+ منحة متاحة
+            {scholarships.length}+ منحة ممولة بالكامل متاحة
           </Badge>
         </div>
 
