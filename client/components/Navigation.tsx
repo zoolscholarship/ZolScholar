@@ -10,6 +10,8 @@ import {
   MessageCircle,
   Menu,
   X,
+  ChevronDown,
+  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -23,7 +25,7 @@ const Navigation = () => {
     { href: "/search", label: "بحث", icon: Search },
     {
       href: "/scholarships/fully-funded",
-      label: "منح دراسية ممولة بالكامل",
+      label: "منح ممولة بالكامل",
       icon: GraduationCap,
     },
     { href: "/scholarships/airfare", label: "منح جوية", icon: Plane },
@@ -31,6 +33,13 @@ const Navigation = () => {
     { href: "/scholarships/foreign", label: "منح أجنبية", icon: Globe },
     { href: "/services", label: "خدمات", icon: Settings },
     { href: "/contact", label: "تواصل معنا", icon: MessageCircle },
+  ];
+
+  const moreItems = [
+    { href: "/recommendations", label: "🤖 توصيات ذكية", icon: "🧠" },
+    { href: "/tracker", label: "📊 متابع الطلبات", icon: "📈" },
+    { href: "/success-stories", label: "🏆 قصص النجاح", icon: "✨" },
+    { href: "/blog", label: "📚 مدونة المنح", icon: "💡" },
   ];
 
   const whatsappNumber = "+62 859-3241-6084";
@@ -73,6 +82,30 @@ const Navigation = () => {
                   </Link>
                 );
               })}
+
+              {/* More Items Dropdown */}
+              <div className="relative group">
+                <button className="nav-link px-3 py-2 rounded-md text-sm font-medium flex items-center gap-2">
+                  <Sparkles className="w-4 h-4" />
+                  المزيد
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+
+                <div className="absolute top-full right-0 mt-2 w-56 bg-white border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                  <div className="py-2">
+                    {moreItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        to={item.href}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                      >
+                        <span className="text-lg">{item.icon}</span>
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -128,6 +161,24 @@ const Navigation = () => {
                   </Link>
                 );
               })}
+
+              {/* Mobile More Items */}
+              <div className="border-t border-border pt-4 mt-4">
+                <div className="text-xs font-semibold text-muted-foreground px-3 mb-2">
+                  مميزات إضافية
+                </div>
+                {moreItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="nav-link block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
 
               {/* Mobile WhatsApp Button */}
               <a
