@@ -116,7 +116,7 @@ export default function Index() {
 
   const featuredScholarships = [
     {
-      title: "منحة الحكومة التركية 2024",
+      title: "منحة ��لحكومة التركية 2024",
       country: "تركيا",
       deadline: "31 يناير 2024",
       funding: "ممولة بالكامل",
@@ -180,17 +180,9 @@ export default function Index() {
                 className="space-y-4 text-lg leading-relaxed text-center"
                 style={{ fontFamily: "Cairo, serif" }}
               >
-                <p className="text-gray-700">
-                  أنا أسامة من السودان، عشت صعوبات كتيرة لكن ما نسيت أحلامي.
-                </p>
-
                 <p className="text-blue-800 font-semibold text-xl">
                   "حلم زول بسيط" - منصة مجانية لمساعدة الطلاب السودانيين في
                   الحصول على منح دراسية.
-                </p>
-
-                <p className="text-gray-700">
-                  من زول طلب مساعدة عشان يسافر، لي زول بساعد غيرو يسافر.
                 </p>
 
                 <p className="text-xl font-bold text-gray-800 flex items-center justify-center gap-2">
@@ -244,7 +236,7 @@ export default function Index() {
                   </div>
                   <h3 className="font-bold text-lg mb-2">ابحث عن منح</h3>
                   <p className="text-sm text-muted-foreground">
-                    اكتشف مئات المنح المتاحة
+                    اك��شف مئات المنح المتاحة
                   </p>
                 </CardContent>
               </Card>
@@ -455,7 +447,7 @@ export default function Index() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">خدماتنا</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              نقدم لك كل ما تحتاجه لضمان نجاح طلب المنحة الدراسية
+              نقدم لك كل ما تحتاجه لضمان نجاح طلب المنحة ��لدراسية
             </p>
           </div>
 
@@ -610,7 +602,7 @@ export default function Index() {
             ابدأ رحلتك نحو حلمك الدراسي اليوم
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            معانا حتلقى منح عربية وأجنبية، وأدوات تساعدك تخلي طريقك للتقديم
+            معانا حتلقى منح عربية وأجنبية، وأدوات تسا��دك تخلي طريقك للتقديم
             أسهل، ونتابعك خطوة بخطوة لحدي ما تنجح إن شاء الله
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
