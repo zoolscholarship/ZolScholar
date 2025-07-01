@@ -34,7 +34,7 @@ export default function ScholarshipsFullyFunded() {
       level: "بكالوريوس/ماجستير/دكتوراه",
       funding: "ممولة بالكامل",
       language: "الصينية/الإنجليزية",
-      benefits: ["راتب شهري", "سكن مجاني", "تأمين صحي", "دورة لغة"],
+      benefits: ["راتب شهري", "سكن مج��ني", "تأمين صحي", "دورة لغة"],
       applyLink: "http://www.csc.edu.cn",
       badgeColor: "bg-red-500 text-white",
       image:
@@ -57,7 +57,7 @@ export default function ScholarshipsFullyFunded() {
     {
       title: "Türkiye Scholarships – تركيا",
       country: "تركيا",
-      deadline: "آخر موعد: فبراير 2025",
+      deadline: "آخ�� موعد: فبراير 2025",
       level: "جميع المستويات",
       funding: "ممولة بالكامل",
       language: "التركية/الإنجليزية",
@@ -295,7 +295,7 @@ export default function ScholarshipsFullyFunded() {
     {
       title: "منحة جامعة كامبريدج",
       country: "بريطانيا",
-      deadline: "آخر موعد: أكتوبر 2024",
+      deadline: "آخ�� موعد: أكتوبر 2024",
       level: "دكتوراه",
       funding: "ممولة بالكامل",
       language: "الإنجليزية",
@@ -329,8 +329,102 @@ export default function ScholarshipsFullyFunded() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {scholarships.map((scholarship, index) => (
-            <Card key={index} className="scholarship-card">
+          {/* Display scholarships from database */}
+          {scholarships.slice(0, 30).map((scholarship) => (
+            <Card
+              key={scholarship.id}
+              className="scholarship-card hover:shadow-lg transition-shadow"
+            >
+              <CardHeader>
+                <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
+                  <img
+                    src={scholarship.image}
+                    alt={scholarship.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex items-center justify-between mb-2">
+                  <Badge className={scholarship.badgeColor}>
+                    {scholarship.country}
+                  </Badge>
+                  <span className="text-sm text-muted-foreground">
+                    {scholarship.deadline}
+                  </span>
+                </div>
+                <CardTitle className="text-xl">{scholarship.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 mb-6">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">المستوى:</span>
+                    <span>{scholarship.level}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">التمويل:</span>
+                    <span className="text-green-600 font-semibold">
+                      {scholarship.funding}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">اللغة:</span>
+                    <span>{scholarship.language}</span>
+                  </div>
+                  {scholarship.amount && (
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">المبلغ:</span>
+                      <span className="text-blue-600 font-semibold">
+                        {scholarship.amount}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-2 mb-6">
+                  <h4 className="font-semibold text-sm">المزايا:</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    {scholarship.benefits.slice(0, 4).map((benefit, i) => (
+                      <li key={i}>• {benefit}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex gap-2">
+                  <Link
+                    to={`/scholarship/${scholarship.id}`}
+                    className="flex-1"
+                  >
+                    <Button variant="outline" className="w-full">
+                      تفاصيل أكثر
+                    </Button>
+                  </Link>
+                  <a
+                    href={scholarship.applicationLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <Button className="w-full">
+                      قدِّم الآن
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                    </Button>
+                  </a>
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" size="icon">
+                      <MessageCircle className="w-4 h-4" />
+                    </Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+
+          {/* Display some static scholarships for additional content */}
+          {staticScholarships.slice(0, 12).map((scholarship, index) => (
+            <Card key={`static-${index}`} className="scholarship-card">
               <CardHeader>
                 <div className="w-full h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
                   <img
