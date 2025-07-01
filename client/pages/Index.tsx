@@ -103,7 +103,7 @@ export default function Index() {
     {
       title: "استشارات خاصة",
       icon: HeadphonesIcon,
-      description: "استشارات شخصية ومتابعة مستمرة عبر وات��اب",
+      description: "استشارات شخصية ومتابعة مستمرة عبر واتساب",
     },
   ];
 
@@ -174,46 +174,27 @@ export default function Index() {
               </h1>
             </div>
 
-            {/* Personal Story */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+            {/* Personal Story - Simple & Short */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
               <div
-                className="space-y-6 text-lg leading-relaxed"
+                className="space-y-4 text-lg leading-relaxed text-center"
                 style={{ fontFamily: "Cairo, serif" }}
               >
                 <p className="text-gray-700">
-                  أنا زول بسيط من السودان، عشت صعوبات كثيرة، من حرب وفرقة، من
-                  جوع وغربة، لكن ما نسيت أحلامي، ولا نسيت بلدي وأهلي.
+                  أنا أسامة من السودان، عشت صعوبات كتيرة لكن ما نسيت أحلامي.
                 </p>
 
-                <div className="flex items-center justify-center gap-2 my-6">
-                  <div className="h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent flex-1"></div>
-                  <Heart className="w-6 h-6 text-red-500" />
-                  <div className="h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent flex-1"></div>
-                </div>
-
-                <p className="text-blue-800 font-semibold">
-                  "حلم زول بسيط" ما موقع عادي… دا رسالة، أمل، ويد ممدودة لأي شاب
-                  أو بنت سوداني/ة بفتش في النور وسط العتمة.
+                <p className="text-blue-800 font-semibold text-xl">
+                  "حلم زول بسيط" - منصة مجانية لمساعدة الطلاب السودانيين في
+                  الحصول على منح دراسية.
                 </p>
 
                 <p className="text-gray-700">
-                  هنا، حتلقى منح دراسية ممولة بالكامل، فرص من كل العالم، خدمات
-                  تساعدك تجهز ملفك، وكل دا مجانًا، عشانك.
+                  من زول طلب مساعدة عشان يسافر، لي زول بساعد غيرو يسافر.
                 </p>
 
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border-l-4 border-green-500">
-                  <p className="text-green-800 font-medium">
-                    أنا أسامة، من زول طلب مساعدات عشان يسافر، لي زول بساعد غيرو
-                    يسافر.
-                    <br />
-                    حلمي؟ أشوف أكبر عدد من شباب السودان في الجامعات العالمية،
-                    مرفوعي الراس، وناجحين.
-                  </p>
-                </div>
-
-                <p className="text-2xl font-bold text-gray-800 flex items-center justify-center gap-2">
-                  لو وصلت هنا، فأنت ما وحدك…
-                  <span className="text-3xl">✊</span>
+                <p className="text-xl font-bold text-gray-800 flex items-center justify-center gap-2">
+                  لو وصلت هنا، فأنت ما وحدك… ✊
                 </p>
               </div>
 
