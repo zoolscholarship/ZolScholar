@@ -131,13 +131,14 @@ const Navigation = () => {
             <div className="md:hidden">
               <Button
                 variant="ghost"
-                size="icon"
+                size="lg"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-3"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
+                  <X className="w-7 h-7" />
                 ) : (
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-7 h-7" />
                 )}
               </Button>
             </div>
@@ -146,7 +147,7 @@ const Navigation = () => {
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <div className="md:hidden">
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-border">
+              <div className="px-4 pt-4 pb-6 space-y-2 bg-white border-t border-border">
                 {navItems.map((item) => {
                   const Icon = item.icon;
                   const isActive = location.pathname === item.href;
@@ -156,45 +157,47 @@ const Navigation = () => {
                       key={item.href}
                       to={item.href}
                       className={cn(
-                        "nav-link block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2",
+                        "nav-link block px-4 py-4 rounded-lg text-lg font-medium flex items-center gap-3 transition-all hover:bg-primary/5",
                         isActive && "text-primary bg-primary/10",
                       )}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {Icon && <Icon className="w-4 h-4" />}
+                      {Icon && <Icon className="w-5 h-5" />}
                       {item.label}
                     </Link>
                   );
                 })}
 
                 {/* Mobile More Items */}
-                <div className="border-t border-border pt-4 mt-4">
-                  <div className="text-xs font-semibold text-muted-foreground px-3 mb-2">
+                <div className="border-t border-border pt-4 mt-6">
+                  <div className="text-sm font-semibold text-muted-foreground px-4 mb-3">
                     مميزات إضافية
                   </div>
                   {moreItems.map((item) => (
                     <Link
                       key={item.href}
                       to={item.href}
-                      className="nav-link block px-3 py-2 rounded-md text-base font-medium flex items-center gap-2"
+                      className="nav-link block px-4 py-4 rounded-lg text-lg font-medium flex items-center gap-3 transition-all hover:bg-primary/5"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <span className="text-lg">{item.icon}</span>
+                      <span className="text-xl">{item.icon}</span>
                       {item.label}
                     </Link>
                   ))}
                 </div>
 
                 {/* Mobile WhatsApp Button */}
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="whatsapp-button w-full justify-center mt-4"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  تواصل معنا على واتساب
-                </a>
+                <div className="pt-4">
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whatsapp-button w-full justify-center py-4 text-lg"
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    تواصل معنا على واتساب
+                  </a>
+                </div>
               </div>
             </div>
           )}

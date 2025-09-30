@@ -11,38 +11,38 @@
    */
   :root {
     --background: 0 0% 100%;
-    --foreground: 210 24% 16%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 24% 16%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 16%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 210 24% 16%;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%;
-    --success-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
 
     --warning: 38 92% 50%;
-    --warning-foreground: 210 40% 98%;
+    --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 50%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
@@ -57,39 +57,39 @@
   }
 
   .dark {
-    --background: 210 24% 16%;
+    --background: 215 28% 17%;
     --foreground: 210 40% 98%;
 
-    --card: 210 24% 16%;
+    --card: 215 28% 17%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 210 24% 16%;
+    --popover: 215 28% 17%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 215 30% 22%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 30% 22%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%;
-    --success-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
 
     --warning: 38 92% 50%;
-    --warning-foreground: 210 40% 98%;
+    --warning-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 210 100% 50%;
+    --border: 215 30% 22%;
+    --input: 215 30% 22%;
+    --ring: 217 91% 60%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -149,5 +149,69 @@
 
   .nav-link {
     @apply text-foreground hover:text-primary transition-colors font-medium;
+  }
+
+  /* Mobile-optimized components */
+  .mobile-button {
+    @apply py-4 px-6 text-mobile-base font-medium rounded-lg min-h-[48px] touch-manipulation;
+  }
+
+  .mobile-card {
+    @apply p-6 rounded-xl shadow-sm border border-border bg-card;
+  }
+
+  .mobile-text {
+    @apply text-mobile-base leading-relaxed;
+  }
+
+  .mobile-heading {
+    @apply text-mobile-xl font-bold leading-tight;
+  }
+
+  .mobile-subheading {
+    @apply text-mobile-lg font-semibold;
+  }
+
+  /* Touch-friendly interactive elements */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Improved readability on mobile */
+  @media (max-width: 768px) {
+    body {
+      font-size: 1.125rem;
+      line-height: 1.75;
+    }
+    
+    h1 {
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+    
+    h2 {
+      font-size: 1.625rem;
+      line-height: 2.25rem;
+    }
+    
+    h3 {
+      font-size: 1.375rem;
+      line-height: 2rem;
+    }
+    
+    p {
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+    
+    button {
+      min-height: 48px;
+      font-size: 1.125rem;
+    }
+    
+    input, textarea, select {
+      min-height: 48px;
+      font-size: 1.125rem;
+    }
   }
 }

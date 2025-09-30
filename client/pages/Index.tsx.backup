@@ -147,7 +147,7 @@ export default function Index() {
 
       {/* Personal Introduction Section */}
       <section
-        className="relative py-20 px-4 overflow-hidden"
+        className="relative py-12 md:py-20 px-4 overflow-hidden"
         style={{
           background:
             "linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 50%, rgba(245, 158, 11, 0.1) 100%)",
@@ -163,9 +163,9 @@ export default function Index() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
             {/* Logo/Title */}
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <h1
-                className="text-5xl md:text-6xl font-bold mb-4"
+                className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
                 style={{ fontFamily: "Cairo, serif" }}
               >
                 <span className="bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 bg-clip-text text-transparent">
@@ -175,29 +175,29 @@ export default function Index() {
             </div>
 
             {/* Personal Story - Simple & Short */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-white/20 mx-4 md:mx-0">
               <div
-                className="space-y-4 text-lg leading-relaxed text-center"
+                className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed text-center"
                 style={{ fontFamily: "Cairo, serif" }}
               >
-                <p className="text-blue-800 font-semibold text-xl">
+                <p className="text-blue-800 font-semibold text-lg md:text-xl">
                   "حلم زول بسيط" - منصة مجانية لمساعدة الطلاب السودانيين في
                   الحصول على منح دراسية.
                 </p>
 
-                <p className="text-xl font-bold text-gray-800 flex items-center justify-center gap-2">
+                <p className="text-lg md:text-xl font-bold text-gray-800 flex items-center justify-center gap-2">
                   لو وصلت هنا، فأنت ما وحدك… ✊
                 </p>
               </div>
 
               {/* CTA Button */}
-              <div className="mt-8">
+              <div className="mt-6 md:mt-8">
                 <Link to="/search">
                   <Button
                     size="lg"
-                    className="text-xl px-10 py-4 bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 hover:from-blue-700 hover:via-green-600 hover:to-yellow-600 text-white shadow-lg transform hover:scale-105 transition-all duration-300"
+                    className="w-full md:w-auto text-lg md:text-xl px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-blue-600 via-green-500 to-yellow-500 hover:from-blue-700 hover:via-green-600 hover:to-yellow-600 text-white shadow-lg transform hover:scale-105 transition-all duration-300 touch-target"
                   >
-                    <GraduationCap className="w-6 h-6 ml-3" />
+                    <GraduationCap className="w-5 h-5 md:w-6 md:h-6 ml-3" />
                     ابدأ رحلة حلمك
                     <ArrowLeft className="w-6 h-6 mr-3" />
                   </Button>
@@ -281,28 +281,18 @@ export default function Index() {
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-200 transition-colors">
                     <MessageCircle className="w-8 h-8 text-green-600" />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">تحدث معنا</h3>
-                  <p className="text-sm text-muted-foreground">
-                    احصل على مساعدة فورية
-                  </p>
-                </CardContent>
-              </Card>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-12 md:py-16 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                  <h3 className="font-bold text-lg mb-2">تحدث معنا</h3>      {/* Stats Section */}
+      <section className="py-12 md:py-20 px-4 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
               إنجازاتنا
             </h2>
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-lg md:text-xl text-muted-foreground">
               أرقام نفتخر بها
             </p>
           </div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
@@ -320,22 +310,20 @@ export default function Index() {
             })}
           </div>
         </div>
-      </section>
-
-      {/* Scholarship Categories */}
-      <section className="py-12 md:py-20 px-4">
+      </section>Categories */}
+      <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
               أقسام المنح الدراسية
             </h2>
-            <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               اختر النوع المناسب لك من منحنا المتنوعة والمصممة لتلبية احتياجاتك
               التعليمية
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {scholarshipCategories.map((category, index) => {
               const Icon = category.icon;
               return (
@@ -360,11 +348,11 @@ export default function Index() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-center mb-6 leading-relaxed text-sm md:text-base">
+                    <CardDescription className="text-center mb-6 leading-relaxed">
                       {category.description}
                     </CardDescription>
                     <Link to={category.href}>
-                      <Button className="w-full group-hover:bg-primary/90 py-3 md:py-2 text-base md:text-sm touch-target">
+                      <Button className="w-full group-hover:bg-primary/90">
                         استكشف الآن
                         <ArrowLeft className="w-4 h-4 mr-2" />
                       </Button>
